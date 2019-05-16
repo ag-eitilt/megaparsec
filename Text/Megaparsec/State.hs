@@ -15,6 +15,7 @@
 
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE Safe               #-}
 
 module Text.Megaparsec.State
   ( State (..)

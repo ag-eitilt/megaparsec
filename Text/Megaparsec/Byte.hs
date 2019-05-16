@@ -11,6 +11,7 @@
 --
 -- @since 6.0.0
 
+{-# LANGUAGE Safe                #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeFamilies        #-}
 

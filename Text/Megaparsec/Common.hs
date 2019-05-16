@@ -13,6 +13,7 @@
 -- @since 7.0.0
 
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE Safe             #-}
 
 module Text.Megaparsec.Common
   ( string

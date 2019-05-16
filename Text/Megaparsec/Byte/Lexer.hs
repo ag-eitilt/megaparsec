@@ -15,6 +15,7 @@
 -- > import qualified Text.Megaparsec.Byte.Lexer as L
 
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE Trustworthy         #-}
 {-# LANGUAGE TypeFamilies        #-}
 
 module Text.Megaparsec.Byte.Lexer
@@ -36,16 +37,16 @@ module Text.Megaparsec.Byte.Lexer
   , signed )
 where
 
-import Control.Applicative
-import Data.Functor (void)
-import Data.List (foldl')
-import Data.Proxy
-import Data.Scientific (Scientific)
-import Data.Word (Word8)
-import Text.Megaparsec
-import Text.Megaparsec.Lexer
-import qualified Data.Scientific      as Sci
-import qualified Text.Megaparsec.Byte as B
+import safe Control.Applicative
+import safe Data.Functor (void)
+import safe Data.List (foldl')
+import safe Data.Proxy
+import      Data.Scientific (Scientific)
+import safe Data.Word (Word8)
+import safe Text.Megaparsec
+import safe Text.Megaparsec.Lexer
+import      qualified Data.Scientific      as Sci
+import safe qualified Text.Megaparsec.Byte as B
 
 ----------------------------------------------------------------------------
 -- White space

@@ -30,6 +30,7 @@
 {-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE MultiWayIf          #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE Trustworthy         #-}
 {-# LANGUAGE TypeFamilies        #-}
 
 module Text.Megaparsec.Char.Lexer
@@ -61,19 +62,19 @@ module Text.Megaparsec.Char.Lexer
   , signed )
 where
 
-import Control.Applicative
-import Control.Monad (void)
-import Data.List (foldl')
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.Maybe (listToMaybe, fromMaybe, isJust)
-import Data.Proxy
-import Data.Scientific (Scientific)
-import Text.Megaparsec
-import Text.Megaparsec.Lexer
-import qualified Data.Char            as Char
-import qualified Data.Scientific      as Sci
-import qualified Data.Set             as E
-import qualified Text.Megaparsec.Char as C
+import safe Control.Applicative
+import safe Control.Monad (void)
+import safe Data.List (foldl')
+import safe Data.List.NonEmpty (NonEmpty (..))
+import safe Data.Maybe (listToMaybe, fromMaybe, isJust)
+import safe Data.Proxy
+import      Data.Scientific (Scientific)
+import safe Text.Megaparsec
+import safe Text.Megaparsec.Lexer
+import safe qualified Data.Char            as Char
+import      qualified Data.Scientific      as Sci
+import safe qualified Data.Set             as E
+import safe qualified Text.Megaparsec.Char as C
 
 ----------------------------------------------------------------------------
 -- White space

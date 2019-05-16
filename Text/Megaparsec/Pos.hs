@@ -13,10 +13,10 @@
 -- You probably do not want to import this module directly because
 -- "Text.Megaparsec" re-exports it anyway.
 
-{-# LANGUAGE CPP                        #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE CPP                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE Safe               #-}
 
 module Text.Megaparsec.Pos
   ( -- * Abstract position
@@ -53,7 +53,10 @@ import Data.Semigroup
 -- @since 5.0.0
 
 newtype Pos = Pos Int
-  deriving (Show, Eq, Ord, Data, Typeable, NFData)
+  deriving (Show, Eq, Ord, Data, Typeable)
+instance NFData Pos where
+  rnf (Pos i) = rnf i
+  {-# INLINE rnf #-}
 
 -- | Construction of 'Pos' from 'Int'. The function throws
 -- 'InvalidPosException' when given a non-positive argument.

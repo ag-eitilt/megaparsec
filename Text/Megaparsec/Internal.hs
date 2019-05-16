@@ -14,16 +14,16 @@
 --
 -- @since 6.5.0
 
-{-# LANGUAGE CPP                        #-}
-{-# LANGUAGE FlexibleContexts           #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
-{-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE UndecidableInstances       #-}
+{-# LANGUAGE CPP                   #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE LambdaCase            #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE RankNTypes            #-}
+{-# LANGUAGE Safe                  #-}
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE UndecidableInstances  #-}
 
 #if !MIN_VERSION_base(4,11,0)
 {-# OPTIONS -Wno-noncanonical-monoid-instances #-}
@@ -90,7 +90,12 @@ import qualified Data.Set            as E
 -- expecting 'r' or end of input
 
 newtype Hints t = Hints [Set (ErrorItem t)]
-  deriving (Semigroup, Monoid)
+instance Semigroup (Hints t) where
+  Hints l <> Hints r = Hints $ l <> r
+  {-# INLINE (<>) #-}
+instance Monoid (Hints t) where
+  mempty = Hints []
+  {-# INLINE mempty #-}
 
 -- | All information available after parsing. This includes consumption of
 -- input, success (with returned value) or failure (with parse error), and

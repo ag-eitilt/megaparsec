@@ -12,6 +12,7 @@
 -- @since 7.0.0
 
 {-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE Unsafe              #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module Text.Megaparsec.Debug
